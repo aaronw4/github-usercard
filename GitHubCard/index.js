@@ -68,6 +68,13 @@ function cardMaker(items) {
   let followers = document.createElement('p');
   let following = document.createElement('p');
   let bio = document.createElement('p');
+  let button = document.createElement('button');
+  let gitDiv = document.createElement('div')
+  let id = document.createElement('p');
+  let node = document.createElement('p');
+  let repos = document.createElement('p');
+  let created = document.createElement('p');
+  let updated = document.createElement('p');
 
   card.appendChild(img);
   card.appendChild(cardInfo);
@@ -80,6 +87,13 @@ function cardMaker(items) {
   cardInfo.appendChild(followers);
   cardInfo.appendChild(following);
   cardInfo.appendChild(bio);
+  cardInfo.appendChild(button);
+  cardInfo.appendChild(gitDiv);
+  gitDiv.appendChild(id);
+  gitDiv.appendChild(node);
+  gitDiv.appendChild(repos);
+  gitDiv.appendChild(created);
+  gitDiv.appendChild(updated);
 
   profileDiv.style.display = 'flex';
   anchor.style.fontSize = 12;
@@ -89,6 +103,8 @@ function cardMaker(items) {
   cardInfo.classList.add('cardInfo');
   header.classList.add('name');
   userName.classList.add('username');
+  button.classList.add('button');
+  gitDiv.classList.add('gitDiv');
 
   img.src = items.avatar_url;
   header.textContent = items.name;
@@ -100,6 +116,12 @@ function cardMaker(items) {
   followers.textContent = `Followers: ${items.followers}`;
   following.textContent = `Following: ${items.following}`;
   bio.textContent = items.bio;
+  button.textContent = `GitHub Details`;
+  id.textContent = items.id;
+  node.textContent = `Node ID: ${items.node_id}`;
+  repos.textContent = `Public Repos: ${items.public_repos}`;
+  created.textContent = `Created on: ${items.created_at}`;
+  updated.textContent = `Last Updated: ${items.updated_at}`;
 
   return card;
 }
