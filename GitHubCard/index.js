@@ -97,9 +97,18 @@ function cardMaker(items) {
   return card;
 }
 
+
+let array = ['https://api.github.com/users/aaronw4', 
+'https://api.github.com/users/tetondan', 
+'https://api.github.com/users/dustinmyers',
+'https://api.github.com/users/justsml',
+'https://api.github.com/users/luishrd',
+'https://api.github.com/users/bigknell']
+
 let body = document.querySelector('.cards');
 
-axios.get('https://api.github.com/users/aaronw4')
+array.forEach(i => {
+axios.get(i)
   .then(result => {
     console.log(result);
     body.appendChild(cardMaker(result.data));
@@ -107,3 +116,4 @@ axios.get('https://api.github.com/users/aaronw4')
   .catch((err) => {
     console.log(err);
   })
+})
