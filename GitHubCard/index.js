@@ -81,5 +81,12 @@ function cardMaker(items) {
   cardInfo.appendChild(following);
   cardInfo.appendChild(bio);
 
+  card.classList.add('card');
+  cardInfo.classList.add('cardInfo');
+  header.classList.add('name');
+  userName.classList.add('username');
   
+
+  let body = document.querySelector('body');
+
 }
