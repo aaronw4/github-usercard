@@ -85,8 +85,16 @@ function cardMaker(items) {
   cardInfo.classList.add('cardInfo');
   header.classList.add('name');
   userName.classList.add('username');
-  
 
-  let body = document.querySelector('body');
-
+  img.src = items.avatar_url;
+  header.textContent = items.name;
+  userName.textContent = items.login;
+  location.textContent = items.location;
+  profile.textContent = 'Profile:';
+  anchor.src = items.html_url;
+  followers.textContent = 'Followers: ${items.followers.url.lenght}';
+  following.textContent = 'Following: ${items.following_url.length}';
+  bio.textContent = items.bio;
 }
+
+let body = document.querySelector('body');
