@@ -62,6 +62,7 @@ function cardMaker(items) {
   let header = document.createElement('h3');
   let userName = document.createElement('p');
   let location = document.createElement('p');
+  let profileDiv = document.createElement('div');
   let profile = document.createElement('p');
   let anchor = document.createElement('a');
   let followers = document.createElement('p');
@@ -73,11 +74,16 @@ function cardMaker(items) {
   cardInfo.appendChild(header);
   cardInfo.appendChild(userName);
   cardInfo.appendChild(location);
-  cardInfo.appendChild(profile);
-  profile.appendChild(anchor);
+  cardInfo.appendChild(profileDiv);
+  profileDiv.appendChild(profile);
+  profileDiv.appendChild(anchor);
   cardInfo.appendChild(followers);
   cardInfo.appendChild(following);
   cardInfo.appendChild(bio);
+
+  profileDiv.style.display = 'flex';
+  anchor.style.fontSize = 12;
+  anchor.style.paddingLeft = 5;
 
   card.classList.add('card');
   cardInfo.classList.add('cardInfo');
@@ -89,7 +95,8 @@ function cardMaker(items) {
   userName.textContent = items.login;
   location.textContent = items.location;
   profile.textContent = `Profile:`;
-  anchor.src = items.html_url;
+  anchor.textContent = items.html_url;
+  anchor.href = items.html_url;
   followers.textContent = `Followers: ${items.followers}`;
   following.textContent = `Following: ${items.following}`;
   bio.textContent = items.bio;
