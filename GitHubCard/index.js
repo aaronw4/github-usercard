@@ -90,17 +90,19 @@ function cardMaker(items) {
   location.textContent = items.location;
   profile.textContent = `Profile:`;
   anchor.src = items.html_url;
-  followers.textContent = `Followers: ${items.followers.url.length}`;
-  following.textContent = `Following: ${items.following_url.length}`;
+  followers.textContent = `Followers: ${items.followers}`;
+  following.textContent = `Following: ${items.following}`;
   bio.textContent = items.bio;
+
+  return card;
 }
 
-let location = document.querySelector('.cards');
+let body = document.querySelector('.cards');
 
 axios.get('https://api.github.com/users/aaronw4')
   .then(result => {
     console.log(result);
-    location.appendChild(cardMaker(result.data));
+    body.appendChild(cardMaker(result.data));
   })
   .catch((err) => {
     console.log(err);
