@@ -3,8 +3,6 @@
            https://api.github.com/users/<your name>
 */
 
-axios.get('https://api.github.com/users/aaronw4');
-
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
    data in order to use it to build your component function 
@@ -90,11 +88,20 @@ function cardMaker(items) {
   header.textContent = items.name;
   userName.textContent = items.login;
   location.textContent = items.location;
-  profile.textContent = 'Profile:';
+  profile.textContent = `Profile:`;
   anchor.src = items.html_url;
-  followers.textContent = 'Followers: ${items.followers.url.lenght}';
-  following.textContent = 'Following: ${items.following_url.length}';
+  followers.textContent = `Followers: ${items.followers.url.length}`;
+  following.textContent = `Following: ${items.following_url.length}`;
   bio.textContent = items.bio;
 }
 
-let body = document.querySelector('body');
+let location = document.querySelector('.cards');
+
+axios.get('https://api.github.com/users/aaronw4')
+  .then(result => {
+    console.log(result);
+    location.appendChild(cardMaker(result.data));
+  })
+  .catch((err) => {
+    console.log(err);
+  })
