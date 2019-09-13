@@ -103,7 +103,6 @@ function cardMaker(items) {
   cardInfo.classList.add('cardInfo');
   header.classList.add('name');
   userName.classList.add('username');
-  button.classList.add('button');
   gitDiv.classList.add('gitDiv');
 
   img.src = items.avatar_url;
