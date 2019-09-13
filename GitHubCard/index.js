@@ -123,6 +123,10 @@ function cardMaker(items) {
   created.textContent = `Created on: ${items.created_at}`;
   updated.textContent = `Last Updated: ${items.updated_at}`;
 
+  button.addEventListener('click', (e) => {
+    gitDiv.classList.toggle('open')
+  })
+
   return card;
 }
 
